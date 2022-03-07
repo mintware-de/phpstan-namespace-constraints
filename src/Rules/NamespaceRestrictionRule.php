@@ -51,12 +51,8 @@ class NamespaceRestrictionRule implements Rule
             if ($constraint[self::CONSTRAINT_FROM] === null && $scope->getNamespace() !== null) {
                 continue;
             }
-            $escaped = addcslashes($constraint[self::CONSTRAINT_FROM] ?? '', '\\');
-            if ($escaped == null) {
-                $constraints[$constraint[self::CONSTRAINT_FROM]][] = [];
-                continue;
-            }
-            if (preg_match('~^'.$escaped.'$~', $scope->getNamespace() ?? '')) {
+
+            if (preg_match('~^'.$constraint[self::CONSTRAINT_FROM].'$~', $scope->getNamespace() ?? '')) {
                 if (!isset($constraints[$constraint[self::CONSTRAINT_FROM]])) {
                     $constraints[$constraint[self::CONSTRAINT_FROM]] = [];
                 }
@@ -85,7 +81,7 @@ class NamespaceRestrictionRule implements Rule
 
             $fullPattern = '~^('.implode('|', $values).')$~';
 
-            if (!preg_match(addcslashes($fullPattern, '\\'), $name)) {
+            if (!preg_match($fullPattern, $name)) {
                 if (!isset($this->builtInChecks[$name])) {
                     $reflection = null;
                     if (class_exists($name)) {

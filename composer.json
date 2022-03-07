@@ -3,7 +3,7 @@
     "description": "A PHPStan rule for restricting namespace usings to control dependency inheritance.",
     "type": "library",
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": "^7.1 || ^8.0",
         "phpstan/phpstan": "^0.12.99",
         "nikic/php-parser": "^4.13"
     },

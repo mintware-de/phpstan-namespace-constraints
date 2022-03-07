@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\UserInterface;
+namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Data;
 
-use MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core\CoreDependency;
-use MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Data\DataDependency;
+use MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Core\CoreDependency;
+use MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\UserInterface\UserInterfaceDependency;
 
-class ValidUsings
+class InvalidUsings
 {
     public function __construct(
         CoreDependency $coreDependency,

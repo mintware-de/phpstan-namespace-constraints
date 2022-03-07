@@ -5,12 +5,12 @@ services:
 	-
 		class: \MintwareDe\PhpStanNamespaceConstraints\Rules\NamespaceRestrictionRule
 		arguments:
-			constraints: '%namespace_restriction.constraints%'
+			constraints: '%namespace_constraints.constraints%'
 		tags:
 			- phpstan.rules.rule
 
 parametersSchema:
-    namespace_restriction: structure([
+    namespace_constraints: structure([
         constraints: listOf(structure([
             from: anyOf(null, string())
             to: listOf(string())

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core;
+namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Core;
 
-use MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Data\DataDependency;
+use MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Data\DataDependency;
 
 class InvalidUsings
 {

@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core;
+namespace MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Core\Nested;
+
+use MintwareDe\Tests\PhpStanNamespaceConstraints\Simple\Core\CoreDependency;
 
 class ValidUsings
 {
