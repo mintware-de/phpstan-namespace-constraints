@@ -52,17 +52,17 @@ class NamespaceRestrictionRuleTest extends RuleTestCase
         $this->analyse([__DIR__.'/Cases/Core/InvalidUsings.php'], [
             [
                 'Usings to MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Data\DataDependency are forbidden from MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core',
-                6,
+                7,
             ],
         ]);
         $this->analyse([__DIR__.'/Cases/Core/InvalidUsings2.php'], [
             [
                 'Usings to MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Data\DataDependency are forbidden from MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core',
-                6,
+                7,
             ],
             [
                 'Usings to MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\UserInterface\UserInterfaceDependency are forbidden from MintwareDe\Tests\PhpStanNamespaceConstraints\Cases\Core',
-                7,
+                8,
             ],
         ]);
 

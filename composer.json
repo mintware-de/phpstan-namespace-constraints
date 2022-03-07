@@ -36,9 +36,7 @@
     "extra": {
         "hooks": {
             "pre-commit": [
-                "composer run phpunit",
-                "composer run phpstan",
-                "composer run php-cs-fixer:dry-run"
+                "composer run phpunit && phpstan && composer run php-cs-fixer:dry-run"
             ]
         }
     }
