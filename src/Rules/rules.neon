@@ -1,0 +1,18 @@
+rules:
+    - MintwareDe\PhpStanNamespaceConstraints\Rules\NamespaceRestrictionRule
+
+services:
+	-
+		class: \MintwareDe\PhpStanNamespaceConstraints\Rules\NamespaceRestrictionRule
+		arguments:
+			constraints: '%namespace_restriction.constraints%'
+		tags:
+			- phpstan.rules.rule
+
+parametersSchema:
+    namespace_restriction: structure([
+        constraints: listOf(structure([
+            from: anyOf(null, string())
+            to: listOf(string())
+        ]))
+    ])

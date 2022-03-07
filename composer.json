@@ -1,0 +1,45 @@
+{
+    "name": "mintware-de/phpstan-namespace-constraints",
+    "description": "A PHPStan rule for restricting namespace usings to control dependency inheritance.",
+    "type": "library",
+    "require": {
+        "php": "^7.0 || ^8.0",
+        "phpstan/phpstan": "^0.12.99",
+        "nikic/php-parser": "^4.13"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MintwareDe\\PhpStanNamespaceConstraints\\": "src/",
+            "MintwareDe\\Tests\\PhpStanNamespaceConstraints\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Julian Finkler",
+            "email": "julian@mintware.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^3.7",
+        "brainmaestro/composer-git-hooks": "^2.8"
+    },
+    "scripts": {
+        "post-install-cmd": "cghooks add --ignore-lock; cghooks update",
+        "post-update-cmd": "cghooks update",
+        "phpunit": "phpunit",
+        "php-cs-fixer": "php-cs-fixer --using-cache=no fix",
+        "php-cs-fixer:dry-run": "php-cs-fixer --using-cache=no --dry-run fix"
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "composer run phpunit",
+                "composer run phpstan",
+                "composer run php-cs-fixer:dry-run"
+            ]
+        }
+    }
+}
