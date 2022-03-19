@@ -24,8 +24,8 @@ includes:
 parameters:
     namespace_constraints:
         constraints:
-            - from: App\\SourceNamespace\\.* # Everything inside this namespace has access to
-              to: [App\\TargetNamespace\\.*] # this namespace
+            - from: 'App\\SourceNamespace(\\.*)?' # Everything inside this namespace has access to
+              to: ['App\\SourceNamespace(\\.*)?'] # this namespace
 ```
 
 ## Examples
@@ -46,17 +46,17 @@ includes:
 parameters:
     namespace_constraints:
         constraints:
-            - from: App\\Core(\\.*)?
-              to: [App\\Core(\\.*)?]
-            - from: App\\Data(\\.*)?
+            - from: 'App\\Core(\\.*)?'
+              to: ['App\\Core(\\.*)?']
+            - from: 'App\\Data(\\.*)?'
               to: 
-                - App\\Core(\\.*)?
-                - App\\Data(\\.*)?
-            - from: App\\UserInterface(\\.*)?
+                - 'App\\Core(\\.*)?'
+                - 'App\\Data(\\.*)?'
+            - from: 'App\\UserInterface(\\.*)?'
               to: 
-                - App\\Core(\\.*)?
-                - App\\Data(\\.*)?
-                - App\\UserInterface(\\.*)?
+                - 'App\\Core(\\.*)?'
+                - 'App\\Data(\\.*)?'
+                - 'App\\UserInterface(\\.*)?'
 ```
 
 ### Advanced
@@ -68,7 +68,6 @@ graph TD;
     App\*\Core-->App\Shared\Core
 ```
 
-
 ```neon
 # phpstan.neon
 includes:
@@ -78,12 +77,12 @@ parameters:
     namespace_constraints:
         constraints:
             # App\User Constraints
-            - from: App\\User\\Core(\\.*)?
-              to: [App\\User\\Core(\\.*)?]
+            - from: 'App\\User\\Core(\\.*)?'
+              to: ['App\\User\\Core(\\.*)?']
             # App\\Blog\ Constraints
-            - from: App\\Blog\\Core(\\.*)?
-              to: [App\\Blog\\Core(\\.*)?]
+            - from: 'App\\Blog\\Core(\\.*)?'
+              to: ['App\\Blog\\Core(\\.*)?']
             # App\*\Core -> App\Shared\Core
-            - from: App\\(\w+)\\Core(\\.*)?
-              to: [App\\Shared\\Core(\\.*)?]
+            - from: 'App\\(\w+)\\Core(\\.*)?'
+              to: ['App\\Shared\\Core(\\.*)?']
 ```
