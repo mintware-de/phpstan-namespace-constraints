@@ -84,7 +84,7 @@ class NamespaceRestrictionRule implements Rule
             if (!preg_match($fullPattern, $name)) {
                 if (!isset($this->builtInChecks[$name])) {
                     $reflection = null;
-                    if (class_exists($name)) {
+                    if (class_exists($name) || interface_exists($name)) {
                         $reflection = new ReflectionClass($name);
                     } elseif (function_exists($name)) {
                         $reflection = new ReflectionFunction($name);
